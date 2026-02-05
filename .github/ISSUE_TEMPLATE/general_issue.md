@@ -1,9 +1,10 @@
 ---
 name: General Issue
 about: 기본 이슈 템플릿
-title: ""
-labels: ""
-assignees: ""
+title: "<type>-<issueNumber>-<slug>"
+labels: ''
+assignees: ''
+
 ---
 
 ## 📌 이슈 설명
