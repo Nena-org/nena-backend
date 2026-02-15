@@ -3,6 +3,7 @@ plugins {
     id("org.springframework.boot") version "3.4.2"
     id("io.spring.dependency-management") version "1.1.7"
     id("com.diffplug.spotless") version "8.1.0"
+    kotlin("jvm")
 }
 
 group = "com"
@@ -73,6 +74,7 @@ dependencies {
 
     // Swagger
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks.named("compileJava") {
