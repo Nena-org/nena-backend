@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/member")
+@RequestMapping("/members")
 public class MemberController {
     private final MemberService memberService;
 
-    @GetMapping("/settlement/list")
+    @GetMapping("/me/settlements")
     public ResponseEntity<SettlementListResponseDto> settlementList(@AuthenticationPrincipal CustomUserDetails user) {
         SettlementListResponseDto res = null;
         return ResponseEntity.ok(res);
