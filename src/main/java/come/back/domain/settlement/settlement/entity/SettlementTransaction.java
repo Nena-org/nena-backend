@@ -7,10 +7,12 @@ import come.back.global.jpa.entity.BaseEntity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
+@Getter
 public class SettlementTransaction extends BaseEntity {
     @ManyToOne
     private Settlement settlement;
