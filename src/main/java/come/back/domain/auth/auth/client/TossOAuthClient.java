@@ -29,10 +29,8 @@ public class TossOAuthClient {
     @Value("${toss.client-secret}")
     private String clientSecret;
 
-    private static final String TOKEN_PATH =
-            "/api-partner/v1/apps-in-toss/user/oauth2/generate-token";
-    private static final String USER_INFO_PATH =
-            "/api-partner/v1/apps-in-toss/user/oauth2/login-me";
+    private static final String TOKEN_PATH = "/api-partner/v1/apps-in-toss/user/oauth2/generate-token";
+    private static final String USER_INFO_PATH = "/api-partner/v1/apps-in-toss/user/oauth2/login-me";
 
     public TossTokenResponse generateToken(String authorizationCode, String referrer) {
         HttpHeaders headers = new HttpHeaders();
@@ -44,7 +42,8 @@ public class TossOAuthClient {
                 "referrer", referrer);
 
         return restTemplate
-                .exchange(baseUrl + TOKEN_PATH, HttpMethod.POST, new HttpEntity<>(body, headers), TossTokenResponse.class)
+                .exchange(
+                        baseUrl + TOKEN_PATH, HttpMethod.POST, new HttpEntity<>(body, headers), TossTokenResponse.class)
                 .getBody();
     }
 
@@ -54,10 +53,7 @@ public class TossOAuthClient {
 
         return restTemplate
                 .exchange(
-                        baseUrl + USER_INFO_PATH,
-                        HttpMethod.GET,
-                        new HttpEntity<>(headers),
-                        TossUserInfoResponse.class)
+                        baseUrl + USER_INFO_PATH, HttpMethod.GET, new HttpEntity<>(headers), TossUserInfoResponse.class)
                 .getBody();
     }
 }

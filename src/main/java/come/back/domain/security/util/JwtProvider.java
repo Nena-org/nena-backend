@@ -20,8 +20,7 @@ public class JwtProvider {
     private final long accessExpiration;
 
     public JwtProvider(
-            @Value("${jwt.secret}") String secret,
-            @Value("${jwt.access-expiration}") long accessExpiration) {
+            @Value("${jwt.secret}") String secret, @Value("${jwt.access-expiration}") long accessExpiration) {
         this.secretKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret));
         this.accessExpiration = accessExpiration;
     }
@@ -49,6 +48,10 @@ public class JwtProvider {
     }
 
     private Claims parseClaims(String token) {
-        return Jwts.parser().verifyWith(secretKey).build().parseSignedClaims(token).getPayload();
+        return Jwts.parser()
+                .verifyWith(secretKey)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 }

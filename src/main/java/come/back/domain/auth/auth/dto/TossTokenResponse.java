@@ -3,7 +3,8 @@ package come.back.domain.auth.auth.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public record TossTokenResponse(
-        @JsonProperty("resultType") String resultType, @JsonProperty("success") TokenSuccess success) {
+        @JsonProperty("resultType") String resultType,
+        @JsonProperty("success") TokenSuccess success) {
 
     public record TokenSuccess(
             @JsonProperty("accessToken") String accessToken,
